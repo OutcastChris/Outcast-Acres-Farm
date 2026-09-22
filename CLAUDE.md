@@ -86,10 +86,12 @@ Dark editorial. Understated, North Country, premium but not luxury language.
 
 ## Pending content (commented slots in index.html)
 
-- Hero farm video: `assets/media/farm-hero.mp4` (bees on the hive box, crop
-  rows). Slot is commented in the hero section, paste-ready.
+- Hero farm video: `assets/media/farm-hero.mp4`. Slot is commented in the
+  hero section, paste-ready. Content direction is being rethought: Chris
+  finds the old site's footage (bees on the hive box, crop rows) too
+  literal for this brand. Expect moodier, less narrative footage.
 - Three-photo farm grid: `assets/media/farm-1.jpg` through `farm-3.jpg`.
-  Slot is commented in the What We Do section.
+  Slot is commented in the What We Do section. Same direction note applies.
 
 ## Conventions
 

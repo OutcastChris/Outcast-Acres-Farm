@@ -54,6 +54,17 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Film grain over the whole page, so the charcoal reads as material,
+       not flat color. Pure SVG noise, no images, barely there. */
+    body::after {
+      content: "";
+      position: fixed; inset: 0; z-index: 2000;
+      pointer-events: none;
+      opacity: 0.05;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 240px 240px;
+    }
+
     img, video { max-width: 100%; display: block; }
     a { color: inherit; }
     h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 700; line-height: 1.1; }
@@ -68,6 +79,7 @@
       font-weight: 600;
       color: var(--cream-45);
     }
+    .eyebrow .num { font-style: normal; color: var(--marigold); margin-right: 10px; }
 
     /* Marigold hairline rule */
     .rule { width: 52px; height: 1px; background: var(--marigold); border: 0; margin: 20px auto; }
@@ -207,7 +219,7 @@
       transition: border-color .18s ease;
     }
     .brand-card .desc { flex: 1; }
-    .brand-card:hover { border-color: var(--cream-45); }
+    .brand-card:hover { border-color: rgba(217, 116, 37, 0.55); }
     .brand-card .label { font-family: var(--font-ui); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.66rem; font-weight: 600; color: var(--cream-45); }
     .brand-card h3 { font-size: clamp(1.5rem, 3.6vw, 2rem); margin: 10px 0 4px; }
     .brand-card .brand-tag { font-style: italic; color: var(--cream-70); margin: 6px 0 0; }
@@ -223,7 +235,20 @@
 
     /* Footer */
     footer { background: var(--char-deep); color: var(--cream-45); font-family: var(--font-ui); border-top: 1px solid var(--cream-line); }
-    .legal { padding: 40px 0 48px; font-size: 0.78rem; line-height: 1.8; text-align: center; }
+    .foot-mark {
+      display: flex; align-items: center; justify-content: center;
+      gap: clamp(14px, 3vw, 24px);
+      padding-top: 44px;
+    }
+    .foot-mark span {
+      font-family: var(--font-display); font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.3em;
+      font-size: 0.85rem; color: var(--cream-70); white-space: nowrap;
+    }
+    .foot-mark::before, .foot-mark::after {
+      content: ""; height: 1px; width: clamp(28px, 6vw, 64px); background: var(--marigold); flex: none;
+    }
+    .legal { padding: 26px 0 48px; font-size: 0.78rem; line-height: 1.8; text-align: center; }
     .legal strong { color: var(--cream-70); font-weight: 600; }
     .legal .fine { margin-top: 10px; }
     .legal .bd { font-family: var(--font-body); font-style: italic; }
@@ -308,7 +333,7 @@
     <section id="what-we-do" class="band">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">What We Do</span>
+          <span class="eyebrow"><i class="num">01</i>What We Do</span>
           <h2>Cultivator. Processor. Distributor.</h2>
           <hr class="rule" />
         </div>
@@ -331,7 +356,7 @@
     <section id="brands">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">From Our Family</span>
+          <span class="eyebrow"><i class="num">02</i>From Our Family</span>
           <h2>Our Brands</h2>
           <hr class="rule" />
         </div>
@@ -357,7 +382,7 @@
     <!-- ===== Contact ===== -->
     <section id="contact" class="band">
       <div class="wrap contact-inner">
-        <span class="eyebrow">Get In Touch</span>
+        <span class="eyebrow"><i class="num">03</i>Get In Touch</span>
         <h2>Wholesale &amp; Inquiries</h2>
         <hr class="rule" />
         <p>Licensed New York retailers interested in carrying our products can reach out any time.</p>
@@ -375,6 +400,9 @@
 
   <!-- ===== Footer ===== -->
   <footer>
+    <div class="wrap foot-mark" aria-hidden="true">
+      <span>Outcast Acres Farm</span>
+    </div>
     <div class="wrap legal">
       <p><strong>For adults 21 and over. Keep out of reach of children.</strong> Licensed by the New York State Office of Cannabis Management. Cultivator OCM-AUCC-22-000042 &middot; Processor OCM-PROC-25-000317 &middot; Distributor OCM-DIST-24-000060.</p>
       <p class="fine">&copy; <span id="year">2026</span> Outcast Acres Farm LLC, Granville, New York. <span class="bd">Be Different.</span></p>
