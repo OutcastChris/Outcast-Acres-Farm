@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outcast Acres Farm | Be Different.</title>
+  <meta name="description" content="Outcast Acres Farm. Sustainably grown, slow cured cannabis from Granville, New York. Be Different." />
+  <meta name="theme-color" content="#2b2a28" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Outcast Acres Farm" />
+  <meta property="og:description" content="Sustainably grown, slow cured cannabis from Granville, New York. Be Different." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    /* ---- Self-hosted fonts (no third-party requests) ---- */
+    @font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 400; font-display: swap; src: url("assets/fonts/playfair-display-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 500; font-display: swap; src: url("assets/fonts/playfair-display-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 700; font-display: swap; src: url("assets/fonts/playfair-display-latin-700-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Playfair Display"; font-style: normal; font-weight: 900; font-display: swap; src: url("assets/fonts/playfair-display-latin-900-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 400; font-display: swap; src: url("assets/fonts/playfair-display-latin-400-italic.woff2") format("woff2"); }
+    @font-face { font-family: "Playfair Display"; font-style: italic; font-weight: 500; font-display: swap; src: url("assets/fonts/playfair-display-latin-500-italic.woff2") format("woff2"); }
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap; src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 500; font-display: swap; src: url("assets/fonts/inter-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap; src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+
+    :root {
+      /* ---- Palette ---- */
+      --char: #2b2a28;        /* Page ground. */
+      --char-deep: #232220;   /* Alternate bands. */
+      --panel: #333230;       /* Card surface. */
+      --cream: #f0e9dc;       /* Primary type. Warm off-white. */
+      --cream-70: rgba(240, 233, 220, 0.72);
+      --cream-45: rgba(240, 233, 220, 0.46);
+      --cream-line: rgba(240, 233, 220, 0.16);
+      --marigold: #d97425;    /* Hairline rules and small accents only. */
+
+      --font-display: "Playfair Display", Georgia, serif;
+      --font-body: "Playfair Display", Georgia, serif;
+      --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--cream);
+      background-color: var(--char);
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 1.06rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img, video { max-width: 100%; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 700; line-height: 1.1; }
+
+    .wrap { width: min(1080px, 92vw); margin-inline: auto; }
+
+    .eyebrow {
+      font-family: var(--font-ui);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--cream-45);
+    }
+
+    /* Marigold hairline rule */
+    .rule { width: 52px; height: 1px; background: var(--marigold); border: 0; margin: 20px auto; }
+    .rule.left { margin-left: 0; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 15px 30px;
+      border: 1px solid var(--cream);
+      background: transparent;
+      color: var(--cream);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 2px;
+      transition: background .18s ease, color .18s ease;
+    }
+    .btn:hover { background: var(--cream); color: var(--char); }
+    .btn.solid { background: var(--cream); color: var(--char); }
+    .btn.solid:hover { background: transparent; color: var(--cream); }
+
+    /* ---------- Age Gate ---------- */
+    #age-gate {
+      position: fixed; inset: 0; z-index: 1000;
+      background: var(--char-deep);
+      color: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px; text-align: center;
+    }
+    #age-gate .gate-inner { width: min(480px, 100%); }
+    #age-gate .gate-mark {
+      font-family: var(--font-display); font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.3em;
+      font-size: 0.95rem; color: var(--cream-70); margin-bottom: 28px;
+    }
+    #age-gate h2 { font-size: clamp(1.9rem, 6vw, 2.6rem); letter-spacing: 0.01em; }
+    #age-gate p { color: var(--cream-70); font-size: 1rem; margin: 14px auto 26px; max-width: 36ch; }
+    .gate-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    #age-gate .gate-note { margin-top: 24px; font-size: 0.72rem; letter-spacing: 0.04em; color: var(--cream-45); font-family: var(--font-ui); }
+    body.locked { overflow: hidden; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(43, 42, 40, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--cream-line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+    .brand {
+      font-family: var(--font-display); font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.22em;
+      font-size: 0.9rem; text-decoration: none; color: var(--cream);
+      white-space: nowrap;
+    }
+    nav.links { display: flex; gap: 30px; align-items: center; }
+    nav.links a {
+      font-family: var(--font-ui);
+      text-decoration: none; font-size: 0.74rem; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream-70);
+      position: relative; padding: 4px 0;
+    }
+    nav.links a:hover { color: var(--cream); }
+    nav.links a::after {
+      content: ""; position: absolute; left: 0; bottom: -2px; height: 1px; width: 0;
+      background: var(--marigold); transition: width .22s ease;
+    }
+    nav.links a:hover::after { width: 100%; }
+    .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--cream); margin: 5px 0; transition: .2s; }
+
+    /* ---------- Hero ---------- */
+    .hero { text-align: center; padding: clamp(72px, 11vw, 130px) 0 clamp(64px, 9vw, 110px); }
+    .hero .kicker { display: block; margin-bottom: clamp(22px, 4vw, 34px); }
+    .wordmark {
+      font-family: var(--font-display); font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: clamp(2.1rem, 6.4vw, 4.3rem);
+      line-height: 1.12;
+      margin: 0;
+    }
+    .wordmark .farm {
+      display: flex; align-items: center; justify-content: center;
+      gap: clamp(14px, 3vw, 24px);
+      margin-top: clamp(10px, 2vw, 16px);
+      font-weight: 700;
+      font-size: clamp(1.05rem, 3vw, 1.9rem);
+      letter-spacing: 0.5em;
+      text-indent: 0.5em; /* balances the trailing tracking */
+      color: var(--cream-70);
+    }
+    .wordmark .farm::before, .wordmark .farm::after {
+      content: ""; height: 1px; width: clamp(36px, 8vw, 84px); background: var(--marigold); flex: none;
+    }
+    .hero .tagline {
+      font-family: var(--font-body); font-style: italic;
+      font-size: clamp(1.25rem, 3vw, 1.7rem); color: var(--cream-70);
+      margin: clamp(26px, 4vw, 38px) auto 0;
+    }
+    .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: clamp(30px, 5vw, 44px); }
+
+    /* Video slot (when live) */
+    .hero-media { margin: clamp(36px, 6vw, 56px) auto 0; max-width: 920px; }
+    .hero-media video { width: 100%; border: 1px solid var(--cream-line); border-radius: 2px; }
+
+    /* ---------- Sections ---------- */
+    section { padding: clamp(60px, 9vw, 108px) 0; }
+    .section-head { max-width: 680px; margin: 0 auto clamp(36px, 6vw, 56px); text-align: center; }
+    .section-head .eyebrow { display: block; margin-bottom: 8px; }
+    .section-head h2 { font-size: clamp(1.9rem, 4.8vw, 2.9rem); letter-spacing: 0.01em; }
+
+    .band { background: var(--char-deep); border-top: 1px solid var(--cream-line); border-bottom: 1px solid var(--cream-line); }
+
+    .prose-center { max-width: 62ch; margin: 0 auto; text-align: center; }
+    .prose-center p { font-size: 1.14rem; color: var(--cream-70); margin: 0; }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 5vw, 44px); max-width: 760px; margin: 0 auto; }
+    .about .prose .eyebrow { display: block; margin-bottom: 8px; }
+    .about .prose h2 { font-size: clamp(1.9rem, 4.8vw, 2.9rem); margin-bottom: 6px; }
+    .about .prose p { font-size: 1.14rem; color: var(--cream-70); margin: 0 0 16px; }
+    .about-links { font-family: var(--font-ui); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; }
+    .about-links a { color: var(--cream); text-decoration: none; border-bottom: 1px solid var(--marigold); padding-bottom: 2px; }
+    .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .photo-grid img { width: 100%; height: 100%; object-fit: cover; border: 1px solid var(--cream-line); border-radius: 2px; }
+
+    /* CORE product line */
+    .core-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .core-card {
+      background: var(--panel);
+      border: 1px solid var(--cream-line);
+      border-radius: 2px;
+      padding: 30px 28px;
+      display: flex; flex-direction: column;
+    }
+    .core-card .label { font-family: var(--font-ui); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.66rem; font-weight: 600; color: var(--cream-45); }
+    .core-card h3 { font-size: 1.55rem; margin: 8px 0 0; }
+    .core-card .rule.left { margin: 16px 0; }
+    .core-card p { color: var(--cream-70); font-size: 1rem; margin: 0; }
+
+    /* Our brands */
+    .brand-card {
+      max-width: 640px; margin: 0 auto;
+      background: var(--panel);
+      border: 1px solid var(--cream-line);
+      border-radius: 2px;
+      padding: clamp(30px, 5vw, 44px);
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      transition: border-color .18s ease;
+    }
+    .brand-card:hover { border-color: var(--cream-45); }
+    .brand-card .label { font-family: var(--font-ui); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.66rem; font-weight: 600; color: var(--cream-45); }
+    .brand-card h3 { font-size: clamp(1.5rem, 3.6vw, 2rem); margin: 10px 0 4px; }
+    .brand-card .brand-tag { font-style: italic; color: var(--cream-70); margin: 6px 0 0; }
+    .brand-card p.desc { color: var(--cream-70); font-size: 1.02rem; margin: 14px 0 0; }
+    .brand-card .visit { display: inline-block; margin-top: 20px; font-family: var(--font-ui); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream); border-bottom: 1px solid var(--marigold); padding-bottom: 3px; }
+
+    /* Contact */
+    .contact-inner { text-align: center; max-width: 640px; margin: 0 auto; }
+    .contact-inner h2 { font-size: clamp(1.9rem, 4.8vw, 2.9rem); }
+    .contact-inner p { color: var(--cream-70); font-size: 1.14rem; margin: 14px 0 30px; }
+    .contact-meta { margin-top: 28px; font-family: var(--font-ui); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream-45); display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; }
+    .contact-meta a { color: var(--cream); text-decoration: none; border-bottom: 1px solid var(--marigold); padding-bottom: 2px; }
+
+    /* Footer */
+    footer { background: var(--char-deep); color: var(--cream-45); font-family: var(--font-ui); border-top: 1px solid var(--cream-line); }
+    .legal { padding: 40px 0 48px; font-size: 0.78rem; line-height: 1.8; text-align: center; }
+    .legal strong { color: var(--cream-70); font-weight: 600; }
+    .legal .fine { margin-top: 10px; }
+    .legal .bd { font-family: var(--font-body); font-style: italic; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      nav.links {
+        position: absolute; top: 100%; right: 0; left: 0;
+        flex-direction: column; gap: 0; align-items: stretch;
+        background: var(--char-deep); border-bottom: 1px solid var(--cream-line);
+        padding: 6px 6vw 18px; transform: translateY(-8px); opacity: 0; pointer-events: none; transition: .2s;
+      }
+      nav.links.open { transform: none; opacity: 1; pointer-events: auto; }
+      nav.links a { padding: 13px 0; border-bottom: 1px solid rgba(240,233,220,0.08); }
+      .nav-toggle { display: block; }
+      .core-cards { grid-template-columns: 1fr; }
+      .photo-grid { grid-template-columns: 1fr; }
+    }
+    @media (min-width: 861px) and (max-width: 1040px) {
+      .core-cards { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
+    }
+  </style>
+</head>
+<body class="locked">
+
+  <!-- ===== Age Gate ===== -->
+  <div id="age-gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <div class="gate-inner">
+      <div class="gate-mark">Outcast Acres Farm</div>
+      <h2 id="gate-title">Are you 21 or older?</h2>
+      <hr class="rule" />
+      <p>You must be 21 or older to enter. Outcast Acres Farm is intended for adults 21+.</p>
+      <div class="gate-actions">
+        <button class="btn solid" id="gate-yes">Yes, I&rsquo;m 21+</button>
+        <a class="btn" href="https://www.samhsa.gov" rel="noopener">No, exit</a>
+      </div>
+      <div class="gate-note">By entering you confirm you are of legal age in your jurisdiction.</div>
+    </div>
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top">Outcast Acres Farm</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="links" id="nav-links">
+        <a href="#farm">The Farm</a>
+        <a href="#about">About</a>
+        <a href="#core">CORE</a>
+        <a href="#brands">Our Brands</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="wrap">
+        <span class="eyebrow kicker">Granville &middot; New York &middot; Est. 2014</span>
+        <h1 class="wordmark">
+          Outcast Acres
+          <span class="farm">Farm</span>
+        </h1>
+        <p class="tagline">Be Different.</p>
+        <div class="hero-cta">
+          <a class="btn solid" href="#core">The CORE Line</a>
+          <a class="btn" href="#about">About the Farm</a>
+        </div>
+
+        <!-- Farm video slot. Paste-ready: drop the supplied file at
+             assets/media/farm-hero.mp4 (bees on the hive box, crop rows),
+             add a poster frame if available, then uncomment.
+        <div class="hero-media">
+          <video autoplay muted loop playsinline poster="assets/media/farm-hero-poster.jpg">
+            <source src="assets/media/farm-hero.mp4" type="video/mp4" />
+          </video>
+        </div>
+        -->
+      </div>
+    </section>
+
+    <!-- ===== Sustainably Grown. Slow Cured. ===== -->
+    <section id="farm" class="band">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">How We Grow</span>
+          <h2>Sustainably Grown. Slow Cured.</h2>
+          <hr class="rule" />
+        </div>
+        <div class="prose-center">
+          <p>Here at Outcast Acres, we believe our customers deserve a superior product. That&rsquo;s why we use sustainable, ecologically friendly practices to grow our premium cannabis, and then slow cure our flower over several weeks. Our process preserves the highest amount of terpenes possible, so what you hold in your hand smells just like it did the moment it was harvested from our fields.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About the Farm ===== -->
+    <section id="about">
+      <div class="wrap about">
+        <div class="prose">
+          <span class="eyebrow">Who We Are</span>
+          <h2>About the Farm</h2>
+          <hr class="rule left" />
+          <p>Outcast Acres Farm isn&rsquo;t just a name, it&rsquo;s a way of life. Built on hard work and a passion for cultivation, we started our 10-acre farm in 2014, balancing full-time hustles with caring for our dogs, horses, poultry, goats, and falcons. We believe in doing things differently, cutting through the noise to grow cannabis that stands apart. From seed to harvest, every step is handled with care to deliver premium flower for the New York market, no shortcuts, just quality.</p>
+          <p class="about-links">Follow the farm: <a href="https://instagram.com/outcastacres" rel="noopener">@outcastacres</a></p>
+        </div>
+
+        <!-- Farm photo grid slot. Paste-ready: drop three photos at
+             assets/media/farm-1.jpg, farm-2.jpg, farm-3.jpg, then uncomment.
+        <div class="photo-grid">
+          <img src="assets/media/farm-1.jpg" alt="Crop rows at Outcast Acres Farm" loading="lazy" />
+          <img src="assets/media/farm-2.jpg" alt="Animals on the farm" loading="lazy" />
+          <img src="assets/media/farm-3.jpg" alt="Harvest at Outcast Acres Farm" loading="lazy" />
+        </div>
+        -->
+      </div>
+    </section>
+
+    <!-- ===== CORE Product Line ===== -->
+    <section id="core" class="band">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">The Product Line</span>
+          <h2>CORE</h2>
+          <hr class="rule" />
+          <p class="prose-center" style="font-size: 1.14rem; color: var(--cream-70); margin: 0;">2g all-in-one distillate vapes.</p>
+        </div>
+        <div class="core-cards">
+          <article class="core-card">
+            <span class="label">Sativa</span>
+            <h3>Super Lemon Haze</h3>
+            <hr class="rule left" />
+            <p>Super Lemon Haze from CORE. Bright lemon zest and sweet citrus up front, with a peppery, earthy backbone. Sativa. 2g all-in-one vape. Cannabis distillate and cannabis-derived terpenes, made in Granville, New York.</p>
+          </article>
+          <article class="core-card">
+            <span class="label">Indica</span>
+            <h3>GMO</h3>
+            <hr class="rule left" />
+            <p>GMO from CORE. Savory, garlicky funk over a deep, earthy base. Indica. 2g all-in-one vape. Cannabis distillate and cannabis-derived terpenes, made in Granville, New York.</p>
+          </article>
+          <article class="core-card">
+            <span class="label">Indica</span>
+            <h3>Blackberry Kush</h3>
+            <hr class="rule left" />
+            <p>Blackberry Kush from CORE. Sweet dark berry over earthy, hashy spice. Indica. 2g all-in-one vape. Cannabis distillate and cannabis-derived terpenes, made in Granville, New York.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Our Brands ===== -->
+    <section id="brands">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">From Our Family</span>
+          <h2>Our Brands</h2>
+          <hr class="rule" />
+        </div>
+        <a class="brand-card" href="https://adirondackcoldwater.com" rel="noopener">
+          <span class="label">Solventless Live Rosin</span>
+          <h3>Adirondack Cold Water</h3>
+          <p class="brand-tag">Strong. Clean. Solventless.</p>
+          <p class="desc">Our solventless live rosin brand. Grown, washed and pressed in Granville, New York.</p>
+          <span class="visit">Visit adirondackcoldwater.com</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="band">
+      <div class="wrap contact-inner">
+        <span class="eyebrow">Get In Touch</span>
+        <h2>Wholesale &amp; Inquiries</h2>
+        <hr class="rule" />
+        <p>Licensed New York retailers interested in carrying our products can reach out any time.</p>
+        <div class="hero-cta" style="margin-top: 0;">
+          <a class="btn solid" href="mailto:sales@outcastacresfarm.com">Wholesale Inquiry</a>
+        </div>
+        <div class="contact-meta">
+          <span><a href="mailto:sales@outcastacresfarm.com">sales@outcastacresfarm.com</a></span>
+          <span><a href="https://instagram.com/outcastacres" rel="noopener">@outcastacres</a></span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="wrap legal">
+      <p><strong>For adults 21 and over. Keep out of reach of children.</strong> Licensed by the New York State Office of Cannabis Management. Cultivator OCM-AUCC-22-000042 &middot; Processor OCM-PROC-25-000317 &middot; Distributor OCM-DIST-24-000060.</p>
+      <p class="fine">&copy; <span id="year">2026</span> Outcast Acres Farm LLC, Granville, New York. <span class="bd">Be Different.</span></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var KEY = "oaf-age-verified";
+      var gate = document.getElementById("age-gate");
+      var body = document.body;
+
+      // Verified only for the current browser session. Closing the browser
+      // ends the session, so the gate reappears on the next visit.
+      try {
+        if (sessionStorage.getItem(KEY) === "1") {
+          gate.style.display = "none";
+          body.classList.remove("locked");
+        }
+      } catch (e) {}
+
+      document.getElementById("gate-yes").addEventListener("click", function () {
+        try { sessionStorage.setItem(KEY, "1"); } catch (e) {}
+        gate.style.opacity = "0";
+        gate.style.transition = "opacity .35s ease";
+        body.classList.remove("locked");
+        setTimeout(function () { gate.style.display = "none"; }, 350);
+      });
+
+      // Mobile nav
+      var toggle = document.getElementById("nav-toggle");
+      var links = document.getElementById("nav-links");
+      toggle.addEventListener("click", function () {
+        var open = links.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      links.addEventListener("click", function (e) {
+        if (e.target.tagName === "A") {
+          links.classList.remove("open");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      // Current year
+      var y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
