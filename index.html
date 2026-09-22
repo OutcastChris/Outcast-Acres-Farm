@@ -188,9 +188,6 @@
 
     .band { background: var(--char-deep); border-top: 1px solid var(--cream-line); border-bottom: 1px solid var(--cream-line); }
 
-    .prose-center { max-width: 62ch; margin: 0 auto; text-align: center; }
-    .prose-center p { font-size: 1.14rem; color: var(--cream-70); margin: 0; }
-
     /* About */
     .about { display: grid; grid-template-columns: 1fr; gap: clamp(28px, 5vw, 44px); max-width: 760px; margin: 0 auto; }
     .about .prose .eyebrow { display: block; margin-bottom: 8px; }
@@ -201,32 +198,19 @@
     .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .photo-grid img { width: 100%; height: 100%; object-fit: cover; border: 1px solid var(--cream-line); border-radius: 2px; }
 
-    /* CORE product line */
-    .core-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .core-card {
-      background: var(--panel);
-      border: 1px solid var(--cream-line);
-      border-radius: 2px;
-      padding: 30px 28px;
-      display: flex; flex-direction: column;
-    }
-    .core-card .label { font-family: var(--font-ui); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.66rem; font-weight: 600; color: var(--cream-45); }
-    .core-card h3 { font-size: 1.55rem; margin: 8px 0 0; }
-    .core-card .rule.left { margin: 16px 0; }
-    .core-card p { color: var(--cream-70); font-size: 1rem; margin: 0; }
-
-    /* Our brands */
+    /* Our brands: two equal cards, neither leads */
+    .brand-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 900px; margin: 0 auto; }
     .brand-card {
-      max-width: 640px; margin: 0 auto;
       background: var(--panel);
       border: 1px solid var(--cream-line);
       border-radius: 2px;
-      padding: clamp(30px, 5vw, 44px);
+      padding: clamp(30px, 5vw, 44px) clamp(24px, 3.5vw, 36px);
       text-align: center;
       text-decoration: none;
-      display: block;
+      display: flex; flex-direction: column; align-items: center;
       transition: border-color .18s ease;
     }
+    .brand-card .desc { flex: 1; }
     .brand-card:hover { border-color: var(--cream-45); }
     .brand-card .label { font-family: var(--font-ui); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.66rem; font-weight: 600; color: var(--cream-45); }
     .brand-card h3 { font-size: clamp(1.5rem, 3.6vw, 2rem); margin: 10px 0 4px; }
@@ -259,11 +243,8 @@
       nav.links.open { transform: none; opacity: 1; pointer-events: auto; }
       nav.links a { padding: 13px 0; border-bottom: 1px solid rgba(240,233,220,0.08); }
       .nav-toggle { display: block; }
-      .core-cards { grid-template-columns: 1fr; }
+      .brand-cards { grid-template-columns: 1fr; }
       .photo-grid { grid-template-columns: 1fr; }
-    }
-    @media (min-width: 861px) and (max-width: 1040px) {
-      .core-cards { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
     }
   </style>
 </head>
@@ -292,9 +273,7 @@
         <span></span><span></span><span></span>
       </button>
       <nav class="links" id="nav-links">
-        <a href="#farm">The Farm</a>
         <a href="#about">About</a>
-        <a href="#core">CORE</a>
         <a href="#brands">Our Brands</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -313,8 +292,8 @@
         </h1>
         <p class="tagline">Be Different.</p>
         <div class="hero-cta">
-          <a class="btn solid" href="#core">The CORE Line</a>
-          <a class="btn" href="#about">About the Farm</a>
+          <a class="btn solid" href="#about">About the Farm</a>
+          <a class="btn" href="#brands">Our Brands</a>
         </div>
 
         <!-- Farm video slot. Paste-ready: drop the supplied file at
@@ -329,22 +308,8 @@
       </div>
     </section>
 
-    <!-- ===== Sustainably Grown. Slow Cured. ===== -->
-    <section id="farm" class="band">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">How We Grow</span>
-          <h2>Sustainably Grown. Slow Cured.</h2>
-          <hr class="rule" />
-        </div>
-        <div class="prose-center">
-          <p>Here at Outcast Acres, we believe our customers deserve a superior product. That&rsquo;s why we use sustainable, ecologically friendly practices to grow our premium cannabis, and then slow cure our flower over several weeks. Our process preserves the highest amount of terpenes possible, so what you hold in your hand smells just like it did the moment it was harvested from our fields.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- ===== About the Farm ===== -->
-    <section id="about">
+    <section id="about" class="band">
       <div class="wrap about">
         <div class="prose">
           <span class="eyebrow">Who We Are</span>
@@ -365,38 +330,6 @@
       </div>
     </section>
 
-    <!-- ===== CORE Product Line ===== -->
-    <section id="core" class="band">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">The Product Line</span>
-          <h2>CORE</h2>
-          <hr class="rule" />
-          <p class="prose-center" style="font-size: 1.14rem; color: var(--cream-70); margin: 0;">2g all-in-one distillate vapes.</p>
-        </div>
-        <div class="core-cards">
-          <article class="core-card">
-            <span class="label">Sativa</span>
-            <h3>Super Lemon Haze</h3>
-            <hr class="rule left" />
-            <p>Super Lemon Haze from CORE. Bright lemon zest and sweet citrus up front, with a peppery, earthy backbone. Sativa. 2g all-in-one vape. Cannabis distillate and cannabis-derived terpenes, made in Granville, New York.</p>
-          </article>
-          <article class="core-card">
-            <span class="label">Indica</span>
-            <h3>GMO</h3>
-            <hr class="rule left" />
-            <p>GMO from CORE. Savory, garlicky funk over a deep, earthy base. Indica. 2g all-in-one vape. Cannabis distillate and cannabis-derived terpenes, made in Granville, New York.</p>
-          </article>
-          <article class="core-card">
-            <span class="label">Indica</span>
-            <h3>Blackberry Kush</h3>
-            <hr class="rule left" />
-            <p>Blackberry Kush from CORE. Sweet dark berry over earthy, hashy spice. Indica. 2g all-in-one vape. Cannabis distillate and cannabis-derived terpenes, made in Granville, New York.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- ===== Our Brands ===== -->
     <section id="brands">
       <div class="wrap">
@@ -405,13 +338,22 @@
           <h2>Our Brands</h2>
           <hr class="rule" />
         </div>
-        <a class="brand-card" href="https://adirondackcoldwater.com" rel="noopener">
-          <span class="label">Solventless Live Rosin</span>
-          <h3>Adirondack Cold Water</h3>
-          <p class="brand-tag">Strong. Clean. Solventless.</p>
-          <p class="desc">Our solventless live rosin brand. Grown, washed and pressed in Granville, New York.</p>
-          <span class="visit">Visit adirondackcoldwater.com</span>
-        </a>
+        <div class="brand-cards">
+          <a class="brand-card" href="https://findyourcoreny.com" rel="noopener">
+            <span class="label">2g All-in-One Distillate Vapes</span>
+            <h3>CORE</h3>
+            <p class="brand-tag">Consistency comes standard.</p>
+            <p class="desc">Our line of 2g all-in-one distillate vapes, made in Granville, New York.</p>
+            <span class="visit">Visit findyourcoreny.com</span>
+          </a>
+          <a class="brand-card" href="https://adirondackcoldwater.com" rel="noopener">
+            <span class="label">Solventless Live Rosin</span>
+            <h3>Adirondack Cold Water</h3>
+            <p class="brand-tag">Strong. Clean. Solventless.</p>
+            <p class="desc">Our solventless live rosin brand. Grown, washed and pressed in Granville, New York.</p>
+            <span class="visit">Visit adirondackcoldwater.com</span>
+          </a>
+        </div>
       </div>
     </section>
 

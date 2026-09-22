@@ -13,14 +13,20 @@ with no build step, served by GitHub Pages from the main branch root. Open
 `index.html` in a browser and it runs. Do not add a CNAME file yet; the domain
 cutover happens later.
 
-This site is the farm umbrella. Two product brands hang off it:
+This site is the farm umbrella. Two product brands hang off it, presented as
+equals in the Our Brands section (decided 2026-09-22: neither brand leads, and
+product detail lives on the brand sites, not here):
 
 - **CORE**: 2g all-in-one distillate vapes (value line, has its own site at
-  findyourcoreny.com).
+  findyourcoreny.com). Tagline: Consistency comes standard.
 - **Adirondack Cold Water**: solventless live rosin (sister repo
   `OutcastChris/Adirondack-Cold-Water`, site at adirondackcoldwater.com).
   This repo copies ACW's architecture (no-build static, inline CSS, single
   vanilla JS IIFE, self-hosted fonts, session age gate) but has its own look.
+
+The farm no longer sells dry flower, so the old "Sustainably Grown. Slow
+Cured." flower-curing section was removed (2026-09-22). Do not bring back
+flower or curing copy.
 
 ## Project layout
 
@@ -62,10 +68,12 @@ Dark editorial. Understated, North Country, premium but not luxury language.
 - **No prices, no e-commerce, no online ordering.**
 - **No potency numbers. No health, medical, or effect claims.** Sensory
   descriptors only.
-- **Never invent product copy.** The three CORE strain descriptions in
-  `index.html` (Super Lemon Haze, GMO, Blackberry Kush) are approved copy and
-  render word for word. Products without an approved description are not
-  listed. Do not add, trim, or rewrite them.
+- **Never invent product copy.** Individual products are currently not listed
+  on this site at all (brand cards only; product detail lives on the brand
+  sites). If products are ever listed again, only approved descriptions render,
+  word for word; the approved CORE strain copy (Super Lemon Haze, GMO,
+  Blackberry Kush) is in git history. Products without an approved description
+  are not listed.
 - **Never call the vapes cartridges.** They are 2g all-in-one vapes.
 - Keep the footer legal line exactly: "For adults 21 and over. Keep out of
   reach of children. Licensed by the New York State Office of Cannabis
