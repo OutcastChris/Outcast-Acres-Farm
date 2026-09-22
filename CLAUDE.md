@@ -28,6 +28,10 @@ The farm no longer sells dry flower, so the old "Sustainably Grown. Slow
 Cured." flower-curing section was removed (2026-09-22). Do not bring back
 flower or curing copy.
 
+There is intentionally no "About the Farm" story section (Chris cut it,
+2026-09-22). The page is hero, What We Do, Our Brands, Contact, footer.
+Do not re-add farm story copy without direction.
+
 ## Project layout
 
 ```
@@ -85,7 +89,7 @@ Dark editorial. Understated, North Country, premium but not luxury language.
 - Hero farm video: `assets/media/farm-hero.mp4` (bees on the hive box, crop
   rows). Slot is commented in the hero section, paste-ready.
 - Three-photo farm grid: `assets/media/farm-1.jpg` through `farm-3.jpg`.
-  Slot is commented in the About section.
+  Slot is commented in the What We Do section.
 
 ## Conventions
 
