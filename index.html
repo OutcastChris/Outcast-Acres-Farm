@@ -264,6 +264,9 @@
       nav.links.open { transform: none; opacity: 1; pointer-events: auto; }
       nav.links a { padding: 13px 0; border-bottom: 1px solid rgba(240,233,220,0.08); }
       .nav-toggle { display: block; }
+      /* Kicker breaks into two deliberate lines instead of an orphaned wrap */
+      .kicker > span { display: block; line-height: 2; }
+      .kicker .ksep { display: none; }
       .brand-cards { grid-template-columns: 1fr; }
       .photo-grid { grid-template-columns: 1fr; }
     }
@@ -306,7 +309,7 @@
     <!-- ===== Hero ===== -->
     <section class="hero">
       <div class="wrap">
-        <span class="eyebrow kicker">Granville &middot; New York &middot; Est. 2014</span>
+        <span class="eyebrow kicker"><span>Built in Washington County</span><span class="ksep"> &middot; </span><span>New York &middot; Est. 2014</span></span>
         <h1 class="wordmark">
           Outcast Acres
           <span class="farm">Farm</span>
