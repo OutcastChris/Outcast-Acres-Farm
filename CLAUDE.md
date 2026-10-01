@@ -8,10 +8,10 @@ The brand website for **Outcast Acres Farm**, a licensed New York adult-use
 cannabis cultivator, processor, and distributor in Granville, New York.
 Tagline: **Be Different.** (always italic on the site).
 
-It replaces the old site at outcastacres.com. It is a static, single-page site
-with no build step, served by GitHub Pages from the main branch root. Open
-`index.html` in a browser and it runs. Do not add a CNAME file yet; the domain
-cutover happens later.
+It replaces the old site at outcastacres.com (a Wix site; DNS lives on Wix
+nameservers). It is a static, single-page site with no build step, served by
+GitHub Pages from the main branch root at https://www.outcastacres.com (the
+CNAME file; apex redirects to www). Open `index.html` in a browser and it runs.
 
 This site is the farm umbrella. Two product brands hang off it, presented as
 equals in the Our Brands section (decided 2026-09-22: neither brand leads, and
@@ -113,5 +113,8 @@ No build. Preview locally:
 python3 -m http.server 8000
 ```
 
-Deploy: GitHub Pages serves the main branch root. Enable under Settings,
-Pages, deploy from main, root.
+Deploy: GitHub Pages serves the main branch root; pushing to main is live.
+Custom domain is www.outcastacres.com via the CNAME file (do not delete it).
+DNS is managed in the Wix account: apex A records point at GitHub Pages
+(185.199.108.153 and .109 / .110 / .111), www is a CNAME to
+outcastchris.github.io.
